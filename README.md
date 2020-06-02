@@ -1,29 +1,16 @@
-# README #
+# Kefnum #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Projeto Kefnum da Softy. Uma simples maneira de organizr o que se tem para fazer.
 
-### What is this repository for? ###
+### Backend ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Python - Django
+* MySQL Server
 
-### How do I get set up? ###
+### Frontend ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* Angular
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Mateus
