@@ -1,23 +1,42 @@
 from django.contrib.auth.models import User
+
 from rest_framework import serializers
+from rest_framework.validators import UniqueTogetherValidator
 
 from .models import Desk, Task
 
-class DeskSerializer(serializers.HyperlinkedModelSerializer):
+class DeskSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Desk
         fields = ('user', 'nome')
 
-class TaskSerializer(serializers.HyperlinkedModelSerializer):
+class TaskSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = Task
         fields = ('user', 'desk', 'descricao', 'pendente', 'ativa', 'data_criacao')
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+
+    def create(self, validated_data):
+        print(str(validated_data))
+
+        user = User.objects.create_user(**validated_data)
+        return user
+
     class Meta:
         model = User
-        fields = ('username', 'email')
-
-    
-
-    
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+        )
+        validators = [
+            UniqueTogetherValidator(
+                queryset=User.objects.all(),
+                fields=['username', 'email']
+            )
+        ]

@@ -25,7 +25,7 @@ SECRET_KEY = '68-4hulclu916umzsw9es5x3u7#ntaqkx@2zc++%@qgo0yq6%q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kefnum',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+STATICFILES_DIRS = (
+  os.path.join(SITE_ROOT, 'static/'),
+)
+
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAuthenticated',),
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',) ,
+    'DEFAULT_PERMISSION_CLASSES': ( 
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
 }

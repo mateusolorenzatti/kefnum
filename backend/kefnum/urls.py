@@ -1,11 +1,13 @@
 '''
  Rotas da Aplicação
 '''
+from django.urls import path
+from .views import *
 
-from rest_framework import routers
-from kefnum import views
-
-router = routers.DefaultRouter()
-router.register(r'tasks', views.TaskViewSet)
-router.register(r'desks', views.DeskViewSet)
-router.register(r'users', views.UserViewSet)
+app_name = 'kefnum'
+urlpatterns = [
+    path('', home, name='home'),
+    path('user/', UserViewSet.as_view(), name='user'),
+    path('desk/', DeskViewSet.as_view(), name='desk'),
+    path('task/', TaskViewSet.as_view(), name='task'),
+]

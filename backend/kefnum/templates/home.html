@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% load static %}
+
+    <link rel="shortcut icon" href="{% static 'images/logo.png' %}"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/mine.css' %}" media="screen,projection"/>
+
+    <title> Kefnum API </title>
+
+</head>
+
+<body class="bg-body">
+    <nav class="navbar navbar-light bg-leve">
+        <div class="container">
+            <div class="navbar-brand">
+              <img src="{% static 'images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+              Kefnum
+            </div>
+            <div class="">
+                <span class="navbar-text">
+                    <img src="{% static 'images/softy.png' %}" height="30" class="d-inline-block align-top" alt="">
+                </span>
+            </div>
+        </div>
+    </nav>
+    <hr class="linha_nav">
+
+    <div id="main" class="container">
+        <div class="card bg-primaria m-2 mt-4">
+            <div class="card-body text-white text-center">
+                <h5>
+                    Kefnum API Central
+                </h5>
+                <hr/>
+                <p>
+                    Página dedicada a concentrar as APIs e demais serviços da aplicação no Back-End para facilitar o desenvolvimento.
+                </p>
+            </div>
+        </div>
+        
+        <div class="card bg-primaria m-2">
+            <div class="card-body">
+                <a class="btn bg-leve w-100 my-2" href="/admin/">
+                    Página do Administrador
+                </a>
+
+                <hr/>
+                <a class="btn bg-leve w-100 my-2" href="/user/">
+                    Consulta de Usuarios
+                </a>
+                <a class="btn bg-leve w-100 my-2" href="/desk/">
+                    Consulta de Desks
+                </a>
+                <a class="btn bg-leve w-100 my-2" href="/task/">
+                    Consulta de Tasks
+                </a>
+            </div>
+        </div>
+       
+        <div class="card bg-primaria m-2">
+            <div class="card-body text-white row">
+                <div class="col-md-6 px-4">
+                    Construído com:
+                    <ul>
+                        <li> Python </li>
+                        <li> DRF (Django Rest Framework) </li>
+                        <li> MySql </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 px-4">
+                    Ferramentas para Desenvolvimento:
+                    <ul>
+                        <li> Microsoft VSCode </li>
+                        <li> GIT - BitBucket </li>
+                        <li> Postman </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card bg-primaria m-2">
+            <div class="card-body text-white text-center my-2">
+                Made by <b>Softy</b>. Software for people. And Business.
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Recursos Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+            crossorigin="anonymous"></script>
+</body>
+</html>
