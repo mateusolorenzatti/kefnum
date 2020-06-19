@@ -1,0 +1,32 @@
+<kef-navbar collapse>
+</kef-navbar>
+
+<kef-container centralizado>
+    <!-- (submit)="login()" [formGroup]="loginForm" -->
+    <div class="col-md-12 row m-0">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card bg-kefnum col-sm-12">
+                <div class="card-body">
+                    <h5 class="card-title text-white"> Login </h5>
+                    <form class="form mt-4">
+                        <div class="form-group">
+                            <input formControlName="userName" class="form-control" placeholder="Usuario" autofocus>
+                        </div>
+    
+                        <div class="form-group">
+                            <input formControlName="password" type="password" class="form-control" placeholder="Senha">
+                        </div>
+    
+                        <a type="submit" class="btn btn-kefnum-dark text-white"> Entrar </a>
+                        <hr class="border border-kefnum-dark m-4">                 
+                        <a class="btn btn-kefnum-dark m-2" [routerLink]="['/newuser']"> Precisa Criar uma conta? </a>
+                        <br>                    
+                        <a class="btn btn-kefnum-dark" [routerLink]="['']"> Voltar para a Home </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</kef-container>

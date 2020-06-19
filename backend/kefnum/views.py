@@ -7,6 +7,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 
 from .models import Desk, Task
 from .serializers import DeskSerializer, TaskSerializer, UserSerializer
@@ -16,22 +17,28 @@ def home(request):
     return render(request, 'home.html')
 
 class DeskViewSet(APIView):
+
     def get(self, format=None):
         desks = Desk.objects.all()
         serializer = DeskSerializer(desks, many=True)
         return Response(serializer.data)
 
 class TaskViewSet(APIView):
+
     def get(self, format=None):
         tasks = Task.objects.all()
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
 
 class UserViewSet(APIView):
-    def get(self, format=None):
-        users = User.objects.all()
+
+    def get(self, request, format=None):
+        users = User.objects.filter(id = request.user.id)
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
+
+class RegisterUserSet(APIView):
+    permission_classes = [AllowAny]
 
     def post(self, request):
         serializer = UserSerializer(data=request.data)
