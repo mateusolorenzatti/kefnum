@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class Desk(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     nome = models.CharField(max_length=20)
+    cor = models.CharField(max_length=10, default="kefnum")
         
 class Task(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)

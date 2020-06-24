@@ -7,13 +7,13 @@
         <p> Selecione o Tema da Aplicação</p>
         
         <div class="form-check" (click)="temaEscuro()">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" ng-checked="getTemaAtual() == 0">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" [checked]="getTemaAtual() == 0">
           <label class="form-check-label" for="exampleRadios1">
             Escuro
           </label>
         </div>
         <div class="form-check" (click)="temaClaro()">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" ng-checked="getTemaAtual() == 1">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" [checked]="getTemaAtual() == 1">
           <label class="form-check-label" for="exampleRadios2">
             Claro
           </label>

@@ -12,7 +12,12 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+Antigamente usados:
+ path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+ path('api-token-auth/', views.obtain_auth_token, name='api-token-auth'),
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -23,6 +28,5 @@ from rest_framework.authtoken import views
 urlpatterns = [
     path('', include('kefnum.urls'), name='kefnum'),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api-token-auth/', views.obtain_auth_token, name='api-token-auth'),
+    path('auth/', include('djoser.urls.authtoken')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

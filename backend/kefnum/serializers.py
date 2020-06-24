@@ -9,13 +9,13 @@ class DeskSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Desk
-        fields = ('user', 'nome')
+        fields = ('id', 'user', 'nome', 'cor')
 
 class TaskSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Task
-        fields = ('user', 'desk', 'descricao', 'pendente', 'ativa', 'data_criacao')
+        fields = ('id', 'user', 'desk', 'descricao', 'pendente', 'ativa', 'data_criacao')
 
 class UserSerializer(serializers.ModelSerializer):
 
