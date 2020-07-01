@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-newuser',
+  selector: 'kef-newuser',
   templateUrl: './newuser.component.html'
 })
 export class NewUserComponent implements OnInit {

@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "04e0d6e0-2349-4277-b707-26ccee35dd0c",
+		"name": "Kefnum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Kefnum - Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"username\": \"mateus.lorenzatti\",\r\n\t\"password\": \"Abacate123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8003/auth/token/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"auth",
+						"token",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - Logout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8003/auth/token/logout/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"auth",
+						"token",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - NewUser",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"lucas.biasoli\",\r\n    \"password\": \"Abacate123\",\r\n    \"first_name\": \"Lucas\",\r\n    \"last_name\": \"Biasoli\",\r\n    \"email\": \"downhill_meu@gmail.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8003/newuser/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"newuser",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - UserInfo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "TOKEN 556ef5eb322a0ac7358917610ca9b4a99887f787",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8003/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - Desks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8003/desks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"desks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - Desks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": 2,\r\n    \"nome\": \"Trabalho\",\r\n    \"cor\": \"azul\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8003/desks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"desks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - Tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8003/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"tasks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kefnum - Tasks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": 2,\r\n    \"desk\": 2,\r\n    \"descricao\": \"Entregar relatorio\",\r\n    \"pendente\": true,\r\n    \"ativa\": true,\r\n    \"data_criacao\": \"2020-06-01T21:09:53.113498-03:00\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8003/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"tasks",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { ErrorsModule } from './errors/errors.module';
 import { ShareModule } from './shared/share.module';
 import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CoreModule } from './core/core.module';
     ErrorsModule,
     ShareModule,
     CoreModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

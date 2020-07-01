@@ -5,6 +5,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ShareModule } from '../shared/share.module';
 import { NewUserComponent } from './newuser/newuser.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,9 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     ShareModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CommonModule
   ],
   providers: []
 })
