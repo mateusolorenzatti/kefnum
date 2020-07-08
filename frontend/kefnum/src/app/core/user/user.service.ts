@@ -1,47 +1,68 @@
 import { Injectable } from '@angular/core';
 import { TokenService } from '../token/token.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '../infra/config.service';
-import { tap } from 'rxjs/operators';
-import { stringify } from 'querystring';
 
 const KEY = "user";
 
-@Injectable({ providedIn: 'root'})
-export class UserService { 
-
-    private user: User;
+@Injectable({ providedIn: 'root' })
+export class UserService {
 
     constructor(private http: HttpClient, private config: ConfigService, private token: TokenService) { }
 
-    public refreshUserData(){
+    public refreshUserData(): Observable<User[]> {
         return this.http
-            .post(
-                this.config.getURL() + '/user/', 
-                {  }, 
-                { observe: 'response'} 
-        )
-        .pipe(tap(res => {
-            this.user = res.body as User;  
-            this.setUserLocal();                
-        }));
+            .get<User[]>(this.config.apiUserInfo());
     }
 
-    public setToken(authToken: string){
+    public setToken(authToken: string) {
         this.token.setToken(authToken);
     }
 
-    public setUserLocal() {
-        window.localStorage.setItem(KEY, (this.user as unknown) as string);
+    public setUserLocal(user: User) {
+        window.localStorage.setItem('id', (user.id as unknown) as string);
+        window.localStorage.setItem('username', user.username);
+        window.localStorage.setItem('first_name', user.first_name);
+        window.localStorage.setItem('last_name', user.last_name);
+        window.localStorage.setItem('email', user.email);
     }
 
     public getUser(): User {
-        return (window.localStorage.getItem(KEY)) as unknown as User;
+        const user = {
+            'id': (window.localStorage.getItem('id') as string) as unknown as number,
+            'username': window.localStorage.getItem('username'),
+            'first_name': window.localStorage.getItem('first_name'),
+            'last_name': window.localStorage.getItem('last_name'),
+            'email': window.localStorage.getItem('email')
+        }
+
+        return user as User;
     }
 
     public removeUser() {
         window.localStorage.removeItem(KEY);
+    }
+
+    public isLogged() {
+        return this.token.hasToken();
+    }
+
+    public logout() {
+        return this.http.post<any>(this.config.apiLogout(), {})
+            .subscribe(() => {
+                this.token.removeToken();
+
+                window.localStorage.removeItem('id');
+                window.localStorage.removeItem('username');
+                window.localStorage.removeItem('first_name');
+                window.localStorage.removeItem('last_name');
+                window.localStorage.removeItem('email');
+            });
+    }
+
+    public newUser(newUser: User){
+        return this.http.post<User>(this.config.apiNewUser(), newUser);
     }
 }

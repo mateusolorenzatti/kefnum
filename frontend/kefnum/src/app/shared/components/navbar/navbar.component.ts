@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
+import { UserService } from 'src/app/core/user/user.service';
+import { Router } from '@angular/router';
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 
 @Component({
   selector: 'kef-navbar',
@@ -10,21 +13,27 @@ export class NavbarComponent implements OnInit {
   @Input('collapse') 
   public collapse: boolean;
 
-  constructor(private theme: ThemeManagerService) { }
+  constructor(
+    public theme: ThemeManagerService,
+    private router: Router,
+    public userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.collapse = this.collapse !== undefined;
   }
 
-  getTemaAtual(){
-    return this.theme.getTheme();
+  alterarTema(){
+    this.theme.toggleTheme();
   }
 
-  temaEscuro(){
-    this.theme.setTheme(0);
+  logout(){
+    this.userService.logout().add(() =>
+      this.router.navigate([''])
+    );
   }
-  
-  temaClaro(){
-    this.theme.setTheme(1);
+
+  homeAction(){
+    this.userService.isLogged() ? this.router.navigate(['/dashboard']) : this.router.navigate(['']);
   }
 }

@@ -1,1 +1,69 @@
-<p>newuser works!</p>
+<div class="col-md-12 row m-0 p-0">
+    <div class="col-sm-0 col-md-3"></div>
+    <div class="col-sm-12 col-md-6">
+        <div class="card bg-kefnum col-sm-12">
+            <div *ngIf="!requestsent" class="card-body">
+                <h5 class="card-title text-white"> Criar uma Conta </h5>
+                
+                <form [formGroup]="newUserForm" class="form mt-4" (submit)="createUser()">
+                    
+                    <div class="row">
+                        <div class="form-group col-sm-12 col-md-6">
+                            <input formControlName="first_name" type="text" class="form-control" placeholder="Nome">
+                        </div>
+                        <div class="form-group col-sm-12 col-md-6">
+                            <input formControlName="last_name" type="text" class="form-control" placeholder="Sobrenome">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input formControlName="username" type="text" class="form-control" id="username" placeholder="Nome de Usuário">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input formControlName="email" type="email" class="form-control" id="email" placeholder="E-mail">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input formControlName="password"  type="password" class="form-control" id="password" placeholder="Senha">
+                    </div>
+                    
+                    <button [disabled]="newUserForm.invalid || newUserForm.pending"  type="submit" class="btn btn-kefnum-dark text-white" createUser> Criar Conta </button>
+                    
+                    <hr class="border border-kefnum-dark m-4">
+                    
+                    <a class="btn btn-kefnum-dark btn-sm my-2" [routerLink]="['/login']"> Já tem o login? 
+                    </a>
+                    <br>
+                    <a class="btn btn-kefnum-dark btn-sm" [routerLink]="['']"> Voltar para a Home </a>
+                </form>
+                
+            </div>
+            
+            <div *ngIf="requestsent" class="card-body text-white">
+                <div *ngIf="success">
+                    <div>
+                        Usuário(a) criado com Sucesso! Agora você já pode utilizar o Kefnum e contemplar uma rotina de produtividade e realizações!
+                    </div> <br>
+                    <a class="btn btn-kefnum-dark btn-sm my-2" [routerLink]="['/login']"> Ir para o Login </a>
+                </div>
+                <div *ngIf="!success">
+                    <div>
+                        Ocorreu um erro durante a operação ... Recomendamos que você volte aqui mais tarde ou tente novamente.
+                        <br>
+                        Aqui vão algumas dicas:
+                        <ul>
+                            <li> Confira se seu e-mail foi digitado corretamente. </li>
+                            <li> As senhas exigem caracteres maiúsculos, minúsculos e números. </li>
+                            <li> Os nomes de usuário são únicos. Você pode tentar algum diferente. </li>
+                        </ul> 
+
+                    </div> <br>
+                    <a class="btn btn-kefnum-dark btn-sm my-2" (click)="retry()"> Tentar novamente </a> <br>
+                    <a class="btn btn-kefnum-dark btn-sm my-2" [routerLink]="['']"> Ir para a Home </a>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="col-sm-0 col-md-3"></div>
+</div>

@@ -1,37 +1,50 @@
+<nav class="navbar sticky-top navbar-dark bg-kefnum">
+  <div class="container">
+    <div class="navbar-brand" (click)="homeAction()">
+      <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Kefnum
+    </div>
 
-<div class="pos-f-t">
-  <div *ngIf="collapse" class="container">
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="p-4">
+    <div class="dropleft show">
+      <a class="btn text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <i class="fa fa-sliders " aria-hidden="true"></i>
+      </a>
 
-        <p> Selecione o Tema da Aplicação</p>
-        
-        <div class="form-check" (click)="temaEscuro()">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" [checked]="getTemaAtual() == 0">
-          <label class="form-check-label" for="exampleRadios1">
-            Escuro
-          </label>
-        </div>
-        <div class="form-check" (click)="temaClaro()">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" [checked]="getTemaAtual() == 1">
-          <label class="form-check-label" for="exampleRadios2">
-            Claro
-          </label>
+      <div class="dropdown-menu bg-kefnum text-white border-kefnum-dark" aria-labelledby="dropdownMenuLink">
+        <div class="px-3">
+          <div class="mb-2">
+            Opções
+          </div>
+
+          <a class="btn border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 w-100" (click)="homeAction()">
+            <i class="fa fa-home mr-1" aria-hidden="true"></i>
+            <small> Home </small>
+          </a>
+
+          <a class="btn border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 w-100" (click)="alterarTema()">
+            <i #darkModeIcon class="fa fa-toggle-on ml-1" aria-hidden="true"
+            *ngIf="theme.isDarkMode(); else lightModeIcon"></i>
+            
+            <ng-template #lightModeIcon>
+              <i #lightModeIcon class="fa fa-toggle-off mr-1" aria-hidden="true"></i>
+            </ng-template>
+
+            <small> Dark Mode </small>
+          </a>
+
+          <div *ngIf="userService.isLogged()">
+
+            <a class="btn btn-sm w-100 text-white border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 mt-1" (click)="logout()"> 
+              <i class="fa fa-sign-out mr-1" aria-hidden="true"></i>
+              Sair 
+            </a>
+          </div>
+
+          <br>
         </div>
       </div>
     </div>
+
   </div>
-  
-  <nav class="navbar navbar-dark bg-kefnum"> 
-    <div class="container">
-      <span class="navbar-brand">
-        <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Kefnum
-      </span>
-      
-      <button *ngIf="collapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"> </span>
-      </button>
-    </div>
-  </nav>
-</div>
+</nav>

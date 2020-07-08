@@ -20,12 +20,13 @@ export class ThemeManagerService {
       'name': 'light',
       'body': 'bg-light',
       'p': 'text-dark',
-      'input': 'bg-light border-kefnum text-white',
+      'input': 'bg-light border-kefnum text-dark',
     }
   ];
 
   constructor() { 
     this.retrieveTheme();
+    this.applyTheme();
   }
 
   private registerTheme(){
@@ -62,5 +63,16 @@ export class ThemeManagerService {
       // Adicionar as classes do tema atual
       dom.addClass(this.themesConfig[this.theme][element]);
     });
+  }
+
+  public isDarkMode(){
+      return this.theme == 0;
+  }
+
+  public toggleTheme(){
+    this.theme = ((this.theme) == 0) ? 1 : 0;
+    this.registerTheme();
+
+    this.applyTheme();
   }
 }

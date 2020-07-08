@@ -16,7 +16,7 @@ export class AuthService {
 
   authenticate(username: string, password: string) {
     return this.http.post<any>(
-        this.config.getURL() + '/auth/token/login/', 
+        this.config.apiLogin(), 
         { username, password }, 
         { observe: 'response'} 
       )

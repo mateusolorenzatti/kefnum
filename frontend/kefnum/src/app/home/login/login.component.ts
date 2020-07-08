@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .authenticate(userName, password)
       .subscribe(
-        () => this.router.navigate(['']),
+        () => this.router.navigate(['dashboard']),
         err => {
           console.log(err);
           this.loginForm.reset();
@@ -44,3 +44,4 @@ export class LoginComponent implements OnInit {
       );
   }
 }
+

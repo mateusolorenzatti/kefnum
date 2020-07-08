@@ -29,6 +29,9 @@
     "bootstrap": "^4.5.0",
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
+    "cordova-plugin-splashscreen": "^5.0.4",
+    "cordova-windows": "^7.0.1",
+    "font-awesome": "^4.7.0",
     "popper.js": "^1.16.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
@@ -58,11 +61,13 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
       "android",
-      "browser"
+      "browser",
+      "windows"
     ]
   }
 }

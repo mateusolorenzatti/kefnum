@@ -4,22 +4,29 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { LoginComponent } from './home/login/login.component';
 import { NewUserComponent } from './home/newuser/newuser.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RedirectIfLoggedGuard } from './core/auth/redirectiflogged.guard';
+import { LoginRequiredGuard } from './core/auth/loginrequired.guard';
 
 const routes: Routes = [
   { 
     path: '', 
-    pathMatch: 'full',
     component: HomeComponent,
   },
   { 
+    path: 'dashboard', 
+    component: DashboardComponent,
+    canActivate: [LoginRequiredGuard]
+  },
+  { 
     path: 'login', 
-    pathMatch: 'full',
     component: LoginComponent,
+    canActivate: [RedirectIfLoggedGuard]
   },
   { 
     path: 'newuser', 
-    pathMatch: 'full',
     component: NewUserComponent,
+    canActivate: [RedirectIfLoggedGuard]
   },
   { 
     path: '**', 
