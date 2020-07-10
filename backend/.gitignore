@@ -1,0 +1,4 @@
+# Ignorar pastas __pycache__
+
+config/__pycache__/
+kefnum/__pycache__/

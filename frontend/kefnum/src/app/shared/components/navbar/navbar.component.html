@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-dark bg-kefnum">
   <div class="container">
-    <div class="navbar-brand" (click)="homeAction()">
+    <div class="btn navbar-brand" (click)="homeAction()">
       <img src="assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Kefnum
     </div>
@@ -8,7 +8,7 @@
     <div class="dropleft show">
       <a class="btn text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">
-        <i class="fa fa-sliders " aria-hidden="true"></i>
+        <i class="fa fa-bars " aria-hidden="true"></i>
       </a>
 
       <div class="dropdown-menu bg-kefnum text-white border-kefnum-dark" aria-labelledby="dropdownMenuLink">
@@ -23,13 +23,8 @@
           </a>
 
           <a class="btn border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 w-100" (click)="alterarTema()">
-            <i #darkModeIcon class="fa fa-toggle-on ml-1" aria-hidden="true"
-            *ngIf="theme.isDarkMode(); else lightModeIcon"></i>
+            <i class="fa {{ theme.isDarkMode() ? 'fa-toggle-on' : 'fa-toggle-off' }} ml-1" aria-hidden="true"></i>
             
-            <ng-template #lightModeIcon>
-              <i #lightModeIcon class="fa fa-toggle-off mr-1" aria-hidden="true"></i>
-            </ng-template>
-
             <small> Dark Mode </small>
           </a>
 
