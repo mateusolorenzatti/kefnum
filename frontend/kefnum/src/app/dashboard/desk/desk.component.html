@@ -1,0 +1,18 @@
+<div class="border border-kefnum-light m-2 p-2 text-left">
+
+    <h6> {{ desk.nome }} </h6>
+    <p> Cor: {{ desk.cor }} </p>
+
+
+    <div *ngIf="tasks.length == 0; else taskList" class="text-muted"> Não há tarefas por enquanto... </div>
+
+    <ng-template #taskList>
+        <p> Tasks: </p>
+        <div *ngFor="let task of tasks">
+
+            <kef-task [task]="task">
+            </kef-task>
+        </div>
+    </ng-template>
+
+</div>

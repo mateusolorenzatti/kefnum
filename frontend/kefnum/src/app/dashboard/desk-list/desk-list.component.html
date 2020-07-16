@@ -1,0 +1,9 @@
+
+<div *ngIf="!desks">
+    Nada por aqui... Tente criar algo para começar!
+</div>
+
+<div *ngFor="let desk of desks">
+    <kef-desk [desk]="desk">
+    </kef-desk>
+</div>

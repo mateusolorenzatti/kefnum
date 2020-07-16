@@ -24,25 +24,30 @@ class DeskViewSet(APIView):
         return Response(serializer.data)
 
     def post(self,request):
-        serializer = DeskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if request.user.id == request.data['user']:
+            serializer = DeskSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
 
 class TaskViewSet(APIView):
 
-    def get(self, format=None):
-        tasks = Task.objects.all()
+    def get(self, request, desk):
+        tasks = Task.objects.filter(desk = desk)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
 
-    def post(self,request):
-        serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request, desk):
+        if request.user.id == request.data['user']:
+            serializer = TaskSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
+        
 
 class UserViewSet(APIView):
 

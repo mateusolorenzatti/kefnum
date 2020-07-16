@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TokenService } from '../token/token.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from './user';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '../infra/config.service';

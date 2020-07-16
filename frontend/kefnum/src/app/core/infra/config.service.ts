@@ -5,7 +5,9 @@ const api_routes = {
   login: API_URL + "/auth/token/login/",
   logout: API_URL + "/auth/token/logout/",
   userinfo: API_URL + "/user/",
-  newuser: API_URL + "/newuser/"
+  newuser: API_URL + "/newuser/",
+  getDesks: API_URL + "/desks/",
+  getTasks: API_URL + "/tasks/"
 }
 
 @Injectable({
@@ -33,5 +35,13 @@ export class ConfigService {
 
   public apiNewUser(){
     return api_routes.newuser;
+  }
+
+  public apiGetDesks(){
+    return api_routes.getDesks;
+  }
+
+  public apiGetTasks(){
+    return api_routes.getTasks;
   }
 }

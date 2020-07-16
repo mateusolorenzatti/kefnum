@@ -11,12 +11,10 @@
                             autofocus>
                     </div>
 
-                    <div class="form-group">
-                        <input formControlName="password" name="password" type="password" class="form-control"
-                            placeholder="Senha">
-                    </div>
+                    <kef-password [parentForm]="loginForm"></kef-password>
 
-                    <button type="submit" class="btn btn-kefnum-dark text-white" login> Entrar </button>
+                    <button  [disabled]="loginForm.invalid || loginForm.pending" type="submit" class="btn btn-kefnum-dark text-white" login> Entrar </button>
+
                     <hr class="border border-kefnum-dark m-4">
                     <a class="btn btn-kefnum-dark btn-sm my-2" [routerLink]="['/newuser']"> Precisa Criar uma conta?
                     </a>

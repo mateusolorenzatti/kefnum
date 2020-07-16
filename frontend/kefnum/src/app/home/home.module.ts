@@ -7,6 +7,7 @@ import { NewUserComponent } from './newuser/newuser.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormComponentsModule } from '../shared/components/formcomponents/formcomponents.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CommonModule } from '@angular/common';
     ShareModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    FormComponentsModule
   ],
   providers: []
 })

@@ -8,19 +8,22 @@ import { ErrorsModule } from './errors/errors.module';
 import { ShareModule } from './shared/share.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+    DashboardModule,
     ErrorsModule,
     ShareModule,
+    NavbarModule,
     CoreModule,
     HttpClientModule,
   ],

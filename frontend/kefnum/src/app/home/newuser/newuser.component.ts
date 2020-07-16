@@ -12,8 +12,6 @@ export class NewUserComponent implements OnInit {
 
   newUserForm: FormGroup;
 
-  mostrarSenha: boolean = false;
-
   requestsent: boolean = false;
   success: boolean = false;
 
@@ -91,10 +89,6 @@ export class NewUserComponent implements OnInit {
     setTimeout(() => {
       this.theme.applyTheme();
     }, 5);
-  }
-
-  acaoMostrarSenha(){
-    this.mostrarSenha = !this.mostrarSenha;
   }
 
 }

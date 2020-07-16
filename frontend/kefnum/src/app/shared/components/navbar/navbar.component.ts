@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
 import { UserService } from 'src/app/core/user/user.service';
 import { Router } from '@angular/router';
-import { getLocaleFirstDayOfWeek } from '@angular/common';
+import { DropdownItemComponent } from './dropdown-item/dropdown-item.component';
 
 @Component({
   selector: 'kef-navbar',

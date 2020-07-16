@@ -12,32 +12,37 @@
       </a>
 
       <div class="dropdown-menu bg-kefnum text-white border-kefnum-dark" aria-labelledby="dropdownMenuLink">
-        <div class="px-3">
-          <div class="mb-2">
-            Opções
+        <div class="py-4 px-3">
+          <div class="bg-kefnum text-white">
+            <hr class="border border-kefnum-dark my-0">
+
+            <kef-dropdown-item [nomeItem]="'Home'" [icon]="'fa-home'" (onClick)="homeAction()">
+            </kef-dropdown-item>
+
+            <kef-dropdown-item [nomeItem]="'Dark Mode'"
+              [icon]="theme.isDarkMode() ? 'fa-toggle-on' : 'fa-toggle-off'" (onClick)="alterarTema()">
+            </kef-dropdown-item>
+
+            <div *ngIf="userService.isLogged(); else optionsNotLogged">
+              <kef-dropdown-item [nomeItem]="'Sair'"
+                [icon]="'fa-sign-out'" (onClick)="logout()">
+              </kef-dropdown-item>
+
+            </div>
+
+            <ng-template #optionsNotLogged>
+              <kef-dropdown-item [nomeItem]="'Login'"
+                [icon]="'fa-sign-in'" [routerLink]="['/login']">
+              </kef-dropdown-item>
+              
+              <kef-dropdown-item [nomeItem]="'Registrar'"
+                [icon]="'fa-user-plus'" [routerLink]="['/login']">
+              </kef-dropdown-item>
+
+            </ng-template>
           </div>
-
-          <a class="btn border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 w-100" (click)="homeAction()">
-            <i class="fa fa-home mr-1" aria-hidden="true"></i>
-            <small> Home </small>
-          </a>
-
-          <a class="btn border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 w-100" (click)="alterarTema()">
-            <i class="fa {{ theme.isDarkMode() ? 'fa-toggle-on' : 'fa-toggle-off' }} ml-1" aria-hidden="true"></i>
-            
-            <small> Dark Mode </small>
-          </a>
-
-          <div *ngIf="userService.isLogged()">
-
-            <a class="btn btn-sm w-100 text-white border-kefnum-dark border-top-0 border-left-0 border-right-0 rounded-0 mt-1" (click)="logout()"> 
-              <i class="fa fa-sign-out mr-1" aria-hidden="true"></i>
-              Sair 
-            </a>
-          </div>
-
-          <br>
         </div>
+
       </div>
     </div>
 
