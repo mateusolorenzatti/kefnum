@@ -1,18 +1,27 @@
-<div class="border border-kefnum-light m-2 p-2 text-left">
-
-    <h6> {{ desk.nome }} </h6>
-    <p> Cor: {{ desk.cor }} </p>
-
-
-    <div *ngIf="tasks.length == 0; else taskList" class="text-muted"> Não há tarefas por enquanto... </div>
-
-    <ng-template #taskList>
-        <p> Tasks: </p>
-        <div *ngFor="let task of tasks">
-
-            <kef-task [task]="task">
-            </kef-task>
+<div class="border rounded border-{{ desk.cor }} text-left m-2">
+    <div class="card-header bg-{{ desk.cor }} text-white">
+        <div class="row">
+            <div class="col text-left">
+                <h6 class="card-title"> {{ desk.nome }} </h6>
+            </div>
+            <div class="col text-right">
+                <h6 class="card-subtitle mt-1">
+                    <i class=" fa fa-list mx-2" aria-hidden="true"></i> {{ tasks.length }}
+                    <i class=" fa fa-list-alt mx-2" aria-hidden="true"></i> {{ resolvidas }}
+                </h6>
+            </div>
         </div>
-    </ng-template>
+    </div>
+    <div class="card-body p-2">
 
+        <div *ngIf="tasks.length == 0; else taskList" class="text-muted"> Não há tarefas por enquanto... </div>
+
+        <ng-template #taskList>
+            <div *ngFor="let task of tasks">
+
+                <kef-task [task]="task">
+                </kef-task>
+            </div>
+        </ng-template>
+    </div>
 </div>

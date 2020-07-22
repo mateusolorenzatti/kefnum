@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
 
     if( time >= 0 && time < 12 ){
       this.mensagemPeriodoDoDia = "Bom dia";
-    }else if ( time >= 12 && time < 6 ){
+    }else if ( time >= 12 && time < 18 ){
       this.mensagemPeriodoDoDia = "Boa tarde";
     } else{
       this.mensagemPeriodoDoDia = "Boa noite";

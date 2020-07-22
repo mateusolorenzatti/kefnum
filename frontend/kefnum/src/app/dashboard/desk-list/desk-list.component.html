@@ -1,9 +1,12 @@
-
-<div *ngIf="!desks">
+<div *ngIf="desks.length == 0">
     Nada por aqui... Tente criar algo para começar!
 </div>
 
-<div *ngFor="let desk of desks">
-    <kef-desk [desk]="desk">
-    </kef-desk>
+<div class="row container-fluid">
+    <div *ngFor="let desk of desks" class="col-xm-12 col-sm-12 col-md-6 col-xl-4">
+        <div class="col-12 p-0">
+            <kef-desk [desk]="desk">
+            </kef-desk>
+        </div>
+    </div>
 </div>

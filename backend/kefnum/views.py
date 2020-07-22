@@ -18,12 +18,12 @@ def home(request):
 
 class DeskViewSet(APIView):
 
-    def get(self, format=None):
-        desks = Desk.objects.all()
+    def get(self, request, format=None):
+        desks = Desk.objects.filter(user = request.user.id)
         serializer = DeskSerializer(desks, many=True)
         return Response(serializer.data)
 
-    def post(self,request):
+    def post(self, request):
         if request.user.id == request.data['user']:
             serializer = DeskSerializer(data=request.data)
             if serializer.is_valid():
@@ -35,7 +35,7 @@ class DeskViewSet(APIView):
 class TaskViewSet(APIView):
 
     def get(self, request, desk):
-        tasks = Task.objects.filter(desk = desk)
+        tasks = Task.objects.filter(desk = desk, user = request.user.id)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
 
