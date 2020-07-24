@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "04e0d6e0-2349-4277-b707-26ccee35dd0c",
+		"_postman_id": "dd403aa6-da4d-4388-b908-878d8c31ca3b",
 		"name": "Kefnum",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -23,7 +23,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"username\": \"mateus.lorenzatti\",\r\n\t\"password\": \"Abacate123\"\r\n}"
+					"raw": "{\r\n\t\"username\": \"clebao\",\r\n\t\"password\": \"Abacate123\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8003/auth/token/login/",
@@ -59,7 +59,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9",
+						"value": "TOKEN fbb61e43d1326e420c7a9859f1c6832e2beca11d",
 						"type": "text"
 					}
 				],
@@ -129,7 +129,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "TOKEN 556ef5eb322a0ac7358917610ca9b4a99887f787",
+						"value": "TOKEN fbb61e43d1326e420c7a9859f1c6832e2beca11d",
 						"type": "text"
 					}
 				],
@@ -154,15 +154,22 @@
 		},
 		{
 			"name": "Kefnum - Desks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9",
+						"value": "TOKEN fbb61e43d1326e420c7a9859f1c6832e2beca11d",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:8003/desks/",
 					"protocol": "http",
@@ -186,7 +193,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9"
+						"value": "TOKEN fbb61e43d1326e420c7a9859f1c6832e2beca11d"
 					},
 					{
 						"key": "Content-Type",
@@ -196,7 +203,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\": 2,\r\n    \"nome\": \"Trabalho\",\r\n    \"cor\": \"azul\"\r\n}"
+					"raw": "{\r\n    \"user\": 22,\r\n    \"nome\": \"Chinelo\",\r\n    \"cor\": \"viesco_blue\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8003/desks/",
@@ -215,17 +222,24 @@
 		},
 		{
 			"name": "Kefnum - Tasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9",
+						"value": "TOKEN a4af7a5c73a550a06bf5a98a024207507b33c740",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8003/tasks/",
+					"raw": "http://localhost:8003/tasks/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -233,7 +247,7 @@
 					"port": "8003",
 					"path": [
 						"tasks",
-						""
+						"2"
 					]
 				}
 			},
@@ -247,7 +261,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "TOKEN ff6dfacfe0525f0b7055daa0809f94b0c80e7ad9"
+						"value": "TOKEN a4af7a5c73a550a06bf5a98a024207507b33c740"
 					},
 					{
 						"key": "Content-Type",
@@ -257,10 +271,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\": 2,\r\n    \"desk\": 2,\r\n    \"descricao\": \"Entregar relatorio\",\r\n    \"pendente\": true,\r\n    \"ativa\": true,\r\n    \"data_criacao\": \"2020-06-01T21:09:53.113498-03:00\"\r\n}"
+					"raw": "{\r\n        \"id\": 2,\r\n        \"user\": 5,\r\n        \"desk\": 2,\r\n        \"descricao\": \"Entregar relatorio\",\r\n        \"pendente\": false,\r\n        \"ativa\": true,\r\n        \"data_criacao\": \"2020-06-23T23:35:26.650601-03:00\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8003/tasks/",
+					"raw": "http://localhost:8003/tasks/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -268,7 +282,7 @@
 					"port": "8003",
 					"path": [
 						"tasks",
-						""
+						"2"
 					]
 				}
 			},
