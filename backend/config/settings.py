@@ -84,11 +84,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kefnum',
-        'USER': 'root',
-        'PASSWORD': 'root_',
-        'PORT': '3306',
+        'USER': 'softy',
+        'PASSWORD': 'softyroot19',
+        'PORT': '5432',
+        'HOST': 'localhost'
     }
 }
 
