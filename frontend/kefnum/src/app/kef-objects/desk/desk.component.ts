@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Desk } from './desk';
-import { TaskService } from './task/task.service';
-import { Task } from './task/task';
+import { TaskService } from '../task/task.service';
+import { Task } from '../task/task';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
 
 @Component({

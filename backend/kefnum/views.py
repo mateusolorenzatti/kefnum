@@ -24,7 +24,7 @@ class DeskViewSet(APIView):
         return Response(serializer.data)
 
     def post(self, request):
-        if request.user.id == request.data['user']:
+        if str(request.user.id) == str(request.data['user']):
             serializer = DeskSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
@@ -40,7 +40,7 @@ class TaskViewSet(APIView):
         return Response(serializer.data)
 
     def post(self, request, desk):
-        if request.user.id == request.data['user']:
+        if str(request.user.id) == str(request.data['user']):
             serializer = TaskSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()

@@ -1,0 +1,31 @@
+
+<kef-title title="Nova Desk">
+    <a class="btn btn-kefnum btn-sm float-right text-center mr-3 text-white" [routerLink]="['/dashboard']">
+        <i class=" fa fa-home m-2" aria-hidden="true"></i>
+    </a>
+</kef-title>
+
+<div>
+    <form [formGroup] = "newDeskForm" (submit)="createDesk()">
+        <p class="float-left mt-3 mb-1"> Título: </p>
+        <input formControlName="nome"  class="form-control" placeholder="Titulo da Task" name="nome"> 
+        
+        <p class="float-left mt-3 mb-1"> Cor: </p>
+        
+        <select #selectCores formControlName="cor" name="cor" id="cor" class="form-control text-white {{ estilo_select }}" (change)="trocaSelect()" >
+
+            <option [ngValue]="null" disabled>Escolha a cor</option>
+
+            <option *ngFor="let cor of cores" ngValue="{{ cor.nome }}">
+                {{ cor.descricao }}
+            </option>
+
+        </select>
+        <!-- Bloquinho para mostrar a cor! {{ borda_atual }} -->
+
+        <button [disabled]="newDeskForm.invalid || newDeskForm.pending" class="btn btn-kefnum float-right mt-3" createDesk>
+            Criar a Desk
+        </button>
+    </form>
+
+</div>

@@ -12,7 +12,6 @@ The color values are stored in the Desk table, and supported in the .scss file (
  - 'angular_red' (#e62e00ff);
  - 'softy_violet' (#8e7cc3ff);
  - 'django_green' (#008000ff);
- - 'icy_white' (#e6ffffff);
  - 'quarantine_gray' (#94b8b8ff);
  - 'postman_orange' (#ff8000ff);
  - 'camp_brown' (#996633ff);

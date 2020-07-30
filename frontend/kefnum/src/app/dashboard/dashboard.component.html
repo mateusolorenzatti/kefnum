@@ -1,18 +1,9 @@
 
-<div class="row align-middle">
-    <div class="col align-middle">
-        <h6 class="mt-3 text-left ml-4 ">
-            {{ mensagemPeriodoDoDia }}, {{user?.first_name}} 
-        </h6>
-    </div>
-    <div class="col align-middle">
-        <a class="btn btn-kefnum btn-sm float-right text-center mr-3 text-white">
-            <i class=" fa fa-plus m-2" aria-hidden="true"></i>
-        </a>
-    </div>
-
-</div>
-<hr class="border border-kefnum">
+<kef-title title="{{ mensagemPeriodoDoDia }}">
+    <a class="btn btn-kefnum btn-sm float-right text-center mr-3 text-white" [routerLink]="['/newdesk']">
+        <i class=" fa fa-plus m-2" aria-hidden="true"></i>
+    </a>
+</kef-title>
 
 <div class="mt-2">
     <kef-desk-list>

@@ -20,7 +20,7 @@ export class ThemeManagerService {
       'name': 'light',
       'body': 'bg-light',
       'p': 'text-dark',
-      'input': 'bg-light border-kefnum text-dark',
+      'input': 'bg-light border-kefnum text-dark'
     }
   ];
 

@@ -4,10 +4,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContainerComponent } from './components/container/container.component';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
+import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
   declarations: [
-    ContainerComponent
+    ContainerComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +18,8 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   providers: [],
   exports: [
-    ContainerComponent
+    ContainerComponent,
+    TitleComponent
   ],
 })
 export class ShareModule { }

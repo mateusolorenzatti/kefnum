@@ -23,7 +23,11 @@
               [icon]="theme.isDarkMode() ? 'fa-toggle-on' : 'fa-toggle-off'" (onClick)="alterarTema()">
             </kef-dropdown-item>
 
-            <div *ngIf="userService.isLogged(); else optionsNotLogged">
+            <div #optionsIsLogged *ngIf="userService.isLogged(); else optionsNotLogged">
+              <kef-dropdown-item [nomeItem]="'Nova Desk'"
+                [icon]="'fa-plus'" [routerLink]="['/newdesk']">
+              </kef-dropdown-item>
+              
               <kef-dropdown-item [nomeItem]="'Sair'"
                 [icon]="'fa-sign-out'" (onClick)="logout()">
               </kef-dropdown-item>

@@ -20,13 +20,14 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.definirPeriodoDoDia();
+
     this.userService.refreshUserData().subscribe(
       data => {
         this.user = data[0];
         this.userService.setUserLocal(this.user);
+        this.mensagemPeriodoDoDia += ", " + this.user?.first_name
       });
-    
-    this.definirPeriodoDoDia();
   }
 
   private definirPeriodoDoDia(){

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { KefObjectsModule } from './kef-objects/kefobjects.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    KefObjectsModule,
     HomeModule,
     DashboardModule,
     ErrorsModule,

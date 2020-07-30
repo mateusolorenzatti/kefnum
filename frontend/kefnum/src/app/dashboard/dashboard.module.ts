@@ -2,24 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
-import { DeskComponent } from './desk/desk.component';
-import { DeskListComponent } from './desk-list/desk-list.component';
-import { TaskComponent } from './desk/task/task.component';
+import { KefObjectsModule } from '../kef-objects/kefobjects.module';
+import { AppRoutingModule } from '../app-routing.module';
+import { ShareModule } from '../shared/share.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    DeskComponent,
-    TaskComponent,
-    DeskListComponent
+    DashboardComponent
   ],
   exports : [ 
-    DashboardComponent,
-    DeskListComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule
+    CommonModule,
+    KefObjectsModule,
+    AppRoutingModule,
+    ShareModule
   ],
   providers: []
 })

@@ -7,6 +7,7 @@ import { NewUserComponent } from './home/newuser/newuser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RedirectIfLoggedGuard } from './core/auth/redirectiflogged.guard';
 import { LoginRequiredGuard } from './core/auth/loginrequired.guard';
+import { NewDeskComponent } from './kef-objects/new-desk/new-desk.component';
 
 const routes: Routes = [
   { 
@@ -16,6 +17,11 @@ const routes: Routes = [
   { 
     path: 'dashboard', 
     component: DashboardComponent,
+    canActivate: [LoginRequiredGuard]
+  },
+  { 
+    path: 'newdesk', 
+    component: NewDeskComponent,
     canActivate: [LoginRequiredGuard]
   },
   { 

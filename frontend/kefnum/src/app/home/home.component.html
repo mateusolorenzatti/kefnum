@@ -1,20 +1,12 @@
 
-<div class="row">
-    <div class="col">
-        <h5 class="float-left mt-2"> Bem vindo(a) ao Kefnum! </h5>
-    </div>
-    <div class="col">
-        <a class="btn btn-kefnum-dark float-right" [routerLink]="['login']">
-            Login
-        </a>
-        <a class="btn btn-kefnum-light float-right mx-2" [routerLink]="['newuser']">
-            Criar Usuário
-        </a>
-    </div>
-</div>
-
-
-<hr class="border border-kefnum">
+<kef-title title="Bem vindo(a) ao Kefnum!">
+    <a class="btn btn-kefnum-dark float-right" [routerLink]="['login']">
+        Login
+    </a>
+    <a class="btn btn-kefnum-light float-right mx-2" [routerLink]="['newuser']">
+        Criar Usuário
+    </a>
+</kef-title>
 
 <img src="assets/img/opening.png" class="img-fluid mx-auto d-block my-2">
 

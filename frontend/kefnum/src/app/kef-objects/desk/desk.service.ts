@@ -13,4 +13,8 @@ export class DeskService {
         return this.http
             .get<Desk[]>(this.config.apiGetDesks());
     }
+
+    public newDesk(newDesk: Desk){
+        return this.http.post<Desk>(this.config.apiGetDesks(), newDesk);
+    }
 }
