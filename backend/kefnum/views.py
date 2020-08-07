@@ -32,14 +32,29 @@ class DeskViewSet(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
 
+class DeskInfoViewSet(APIView):
+
+    def get(self, request, desk_id,format=None):
+        desk = Desk.objects.filter(id = desk_id)
+        dserializer = DeskSerializer(desk, many=True)
+
+        tasks = Task.objects.filter(desk = desk_id)
+        tserializer = TaskSerializer(tasks, many=True)
+
+        return Response({ 
+            **dserializer.data[0], 
+            'tasks': tserializer.data 
+        } )
+
 class TaskViewSet(APIView):
 
     def get(self, request, desk):
         tasks = Task.objects.filter(desk = desk, user = request.user.id)
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
+ 
 
-    def post(self, request, desk):
+    def post(self, request, format=None):
         if str(request.user.id) == str(request.data['user']):
             serializer = TaskSerializer(data=request.data)
             if serializer.is_valid():
@@ -48,6 +63,26 @@ class TaskViewSet(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
         
+    def delete(self, request, task):
+        task_object = Task.objects.get(id = task)
+        
+        if str(request.user.id) == str(task_object.user.id):
+            task_object.delete()
+            return Response({ 'id': task })    
+
+        return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request, task):
+        task_object = Task.objects.get(id = task)
+        
+        if str(request.user.id) == str(task_object.user.id):
+            serializer = TaskSerializer(task_object, data=request.data, partial=True) 
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)    
+        
+        return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
 
 class UserViewSet(APIView):
 

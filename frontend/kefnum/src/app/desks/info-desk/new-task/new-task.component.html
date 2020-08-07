@@ -1,0 +1,21 @@
+
+<div class="p-3 mb-2">
+
+    <form [formGroup] = "newTaskForm" (submit)="createTask()" class="">
+        <div class="row pl-2">
+            <p class="ml-2"> Descrição da Nova Task: </p>
+        </div>
+        <div class="row">
+
+            <div class="col-xm-12 col-sm-10 mt-1">
+                <input formControlName="descricao"  class="form-control border-{{ desk.cor }}" placeholder="Descricao" name="descricao"> 
+            </div>
+
+            <div class="col-xm-12 col-sm-2 mt-1">
+                <button [disabled]="newTaskForm.invalid || newTaskForm.pending" class="btn btn-{{ desk.cor }} col-12" createTask>
+                    Criar a Task
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

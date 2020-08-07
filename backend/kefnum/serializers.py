@@ -5,7 +5,7 @@ from rest_framework.validators import UniqueTogetherValidator
 
 from .models import Desk, Task
 
-class DeskSerializer(serializers.ModelSerializer):
+class DeskSerializer(serializers.ModelSerializer):    
     
     class Meta:
         model = Desk

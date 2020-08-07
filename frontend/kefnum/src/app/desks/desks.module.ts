@@ -1,26 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DeskComponent } from './desk/desk.component';
-import { DeskListComponent } from './desk-list/desk-list.component';
-import { TaskComponent } from './task/task.component';
 import { NewDeskComponent } from './new-desk/new-desk.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { ShareModule } from '../shared/share.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InfoDeskComponent } from './info-desk/info-desk.component';
+import { NewTaskComponent } from './info-desk/new-task/new-task.component';
 
 @NgModule({
   declarations: [
-    DeskComponent,
-    TaskComponent,
-    DeskListComponent,
-    NewDeskComponent
+    NewDeskComponent,
+    InfoDeskComponent,
+    NewTaskComponent,
   ],
-  exports : [ 
-    DeskComponent,
-    TaskComponent,
-    DeskListComponent,
-    NewDeskComponent
+  exports : [
+    NewDeskComponent,
+    InfoDeskComponent
   ],
   imports: [
     BrowserModule,
@@ -32,4 +28,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   providers: []
 })
-export class KefObjectsModule { }
+export class DesksModule { }

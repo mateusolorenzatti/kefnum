@@ -3,11 +3,10 @@ import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 import { Cor } from './cor';
-import { Desk } from '../desk/desk';
 import { UserService } from 'src/app/core/user/user.service';
-import { DeskListComponent } from '../desk-list/desk-list.component';
-import { DeskService } from '../desk/desk.service';
 import { Router } from '@angular/router';
+import { DeskService } from 'src/app/core/desk/desk.service';
+import { Desk } from 'src/app/core/desk/desk';
 
 @Component({
   selector: 'app-new-desk',
@@ -56,10 +55,6 @@ export class NewDeskComponent implements OnInit {
     });  
 
     this.theme.applyTheme();
-  }
-
-  trocaSelect(): void {
-    this.estilo_select = "bg-" + this.newDeskForm.value.cor + " border-" + this.newDeskForm.value.cor;
   }
 
   createDesk(): void {

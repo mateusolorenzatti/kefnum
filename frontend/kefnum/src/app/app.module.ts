@@ -9,9 +9,8 @@ import { ShareModule } from './shared/share.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { KefObjectsModule } from './kef-objects/kefobjects.module';
+import { DesksModule } from './desks/desks.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,7 @@ import { KefObjectsModule } from './kef-objects/kefobjects.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    KefObjectsModule,
+    DesksModule,
     HomeModule,
     DashboardModule,
     ErrorsModule,

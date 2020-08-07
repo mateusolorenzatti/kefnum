@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Desk } from './desk';
-import { TaskService } from '../task/task.service';
-import { Task } from '../task/task';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
+import { Task } from 'src/app/core/task/task';
+import { TaskService } from 'src/app/core/task/task.service';
+import { Desk } from 'src/app/core/desk/desk';
 
 @Component({
-  selector: 'kef-desk',
-  templateUrl: './desk.component.html',
+  selector: 'kef-dash-desk',
+  templateUrl: './dash-desk.component.html',
 })
-export class DeskComponent implements OnInit {
+export class DashDeskComponent implements OnInit {
 
   @Input() desk: Desk;
 

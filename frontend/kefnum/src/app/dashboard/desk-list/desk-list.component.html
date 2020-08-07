@@ -1,0 +1,12 @@
+<div *ngIf="desks.length == 0">
+    Nada por aqui... Tente criar algo para começar!
+</div>
+
+<div class="row container-fluid">
+    <div *ngFor="let desk of desks" class="col-xm-12 col-sm-12 col-md-6 col-xl-4 btn">
+        <div class="col-12 p-1" (mouseenter)="mouseEnterDesk($event)" (mouseleave)="mouseLeaveDesk($event)">
+            <kef-dash-desk [desk]="desk" [routerLink]="['/desk', desk.id]">
+            </kef-dash-desk>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 
 ## Script para a instalação de todas as Dependências em ambiente Linux ##
+source ../venv/bin/activate
 
 #Django
 python3 -m pip install django

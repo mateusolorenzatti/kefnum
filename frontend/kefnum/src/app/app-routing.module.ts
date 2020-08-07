@@ -7,7 +7,8 @@ import { NewUserComponent } from './home/newuser/newuser.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RedirectIfLoggedGuard } from './core/auth/redirectiflogged.guard';
 import { LoginRequiredGuard } from './core/auth/loginrequired.guard';
-import { NewDeskComponent } from './kef-objects/new-desk/new-desk.component';
+import { NewDeskComponent } from './desks/new-desk/new-desk.component';
+import { InfoDeskComponent } from './desks/info-desk/info-desk.component';
 
 const routes: Routes = [
   { 
@@ -22,6 +23,11 @@ const routes: Routes = [
   { 
     path: 'newdesk', 
     component: NewDeskComponent,
+    canActivate: [LoginRequiredGuard]
+  },
+  { 
+    path: 'desk/:id', 
+    component: InfoDeskComponent,
     canActivate: [LoginRequiredGuard]
   },
   { 
@@ -41,7 +47,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

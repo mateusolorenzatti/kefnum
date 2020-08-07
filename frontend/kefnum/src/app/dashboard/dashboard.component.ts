@@ -15,8 +15,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
-    private theme: ThemeManagerService
+    private router: Router
   ) { }
 
   ngOnInit(): void {

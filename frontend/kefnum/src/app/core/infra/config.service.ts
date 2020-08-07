@@ -7,7 +7,10 @@ const api_routes = {
   userinfo: API_URL + "/user/",
   newuser: API_URL + "/newuser/",
   getDesks: API_URL + "/desks/",
-  getTasks: API_URL + "/tasks/"
+  getDeskInfo: API_URL + "/deskinfo/",
+  getTasks: API_URL + "/tasks/",
+  deleteTask: API_URL + "/tasks/modify/",
+  updateTask: API_URL + "/tasks/modify/"
 }
 
 @Injectable({
@@ -41,7 +44,19 @@ export class ConfigService {
     return api_routes.getDesks;
   }
 
+  public apiGetDeskInfo(){
+    return api_routes.getDeskInfo;
+  }
+
   public apiGetTasks(){
     return api_routes.getTasks;
+  }
+
+  public apiDeleteTask(){
+    return api_routes.deleteTask;
+  }
+
+  public apiUpdateTask(){
+    return api_routes.updateTask;
   }
 }

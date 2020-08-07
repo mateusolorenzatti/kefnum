@@ -13,4 +13,16 @@ export class TaskService {
         return this.http
             .get<Task[]>(this.config.apiGetTasks() + desk_id);
     }
+
+    public newTask(newTask: Task){
+        return this.http.post<Task>(this.config.apiGetTasks(), newTask);
+    }
+    
+    public deleteTask(taskId: number){
+        return this.http.delete<any>(this.config.apiDeleteTask() + taskId);
+    }
+
+    public updateTask(taskId: number, updatedTask: Task){
+        return this.http.patch<any>(this.config.apiUpdateTask() + taskId, updatedTask);
+    }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DeskService } from '../desk/desk.service';
-import { Desk } from '../desk/desk';
+import { Desk } from 'src/app/core/desk/desk';
+import { DeskService } from 'src/app/core/desk/desk.service';
+import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
 
 @Component({
   selector: 'kef-desk-list',
@@ -22,6 +23,18 @@ export class DeskListComponent implements OnInit {
         err => {
           console.log(err);
         });
+  }
+
+  mouseEnterDesk(event){
+    let elemento = event.target;
+    elemento.classList.remove("p-1");
+    elemento.classList.add("p-0");
+  }
+  
+  mouseLeaveDesk(event){
+    let elemento = event.target;
+    elemento.classList.remove("p-0");
+    elemento.classList.add("p-1");
   }
 
 }
