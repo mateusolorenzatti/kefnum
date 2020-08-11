@@ -1,0 +1,31 @@
+
+<form [formGroup] = "newDeskForm" (submit)="submit()" class="mb-2">
+
+    <p class="float-left mt-3 mb-1"> Título: </p>
+    <input formControlName="nome"  class="form-control border-{{ (modoEdicao) ? desk.cor : 'kefnum' }}" placeholder="Titulo da Task" name="nome"> 
+    
+    <p class="float-left mt-3 mb-1"> Cor: </p>
+    
+    <br>
+    <div class="mt-4">
+        <div *ngFor="let cor of cores" class="w-100 align-middle bg-{{cor.nome}} pl-2 my-1 rounded text-left">
+
+            <input *ngIf="modoEdicao; else novaDesk" formControlName="cor" type="radio" id="{{ cor.nome }}" name="cor" value="{{ cor.nome }}">
+            
+            <ng-template #novaDesk>
+                <input formControlName="cor" type="radio" id="{{ cor.nome }}" name="cor" value="{{ cor.nome }}">
+            </ng-template>
+
+            <label for="{{ cor.nome }}" class="ml-2 mt-2">{{ cor.descricao }}</label><br>
+        
+        </div>
+    </div>
+
+    <button [disabled]="(modoEdicao) ? true : newDeskForm?.invalid || newDeskForm?.pending" class="btn btn-{{ (modoEdicao) ? 'light' : 'kefnum' }} float-right mt-3" submit>
+        {{ !modoEdicao ? 'Criar a Desk' : 'Salvar' }} 
+    </button>
+
+    <a *ngIf="!modoEdicao" class="btn btn-kefnum-dark float-right mt-3 mr-2" [routerLink]="['/dashboard']">
+        Voltar
+    </a>
+</form>

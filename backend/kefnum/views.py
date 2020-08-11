@@ -32,13 +32,34 @@ class DeskViewSet(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
 
+    def delete(self, request, desk):
+        desk_object = Desk.objects.get(id = desk)
+        
+        if str(request.user.id) == str(desk_object.user.id):
+            desk_object.delete()
+            return Response({ 'id': desk })    
+
+        return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
+
+    def patch(self, request, desk):
+        desk_object = Desk.objects.get(id = desk)
+        
+        if str(request.user.id) == str(desk_object.user.id):
+            serializer = DeskSerializer(desk_object, data=request.data, partial=True) 
+
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)    
+        
+        return Response({ 'error': 'User is not owner' }, status=status.HTTP_400_BAD_REQUEST)
+
 class DeskInfoViewSet(APIView):
 
     def get(self, request, desk_id,format=None):
         desk = Desk.objects.filter(id = desk_id)
         dserializer = DeskSerializer(desk, many=True)
 
-        tasks = Task.objects.filter(desk = desk_id)
+        tasks = Task.objects.filter(desk = desk_id).order_by('data_criacao')
         tserializer = TaskSerializer(tasks, many=True)
 
         return Response({ 

@@ -24,7 +24,7 @@ export class AuthService {
         const authToken = res.body['auth_token'];
         this.userService.setToken(authToken);
 
-        console.log(`User ${username} authenticated with token ${authToken}`);
+        // console.log(`User ${username} authenticated with token ${authToken}`);
       }));
   }
 }

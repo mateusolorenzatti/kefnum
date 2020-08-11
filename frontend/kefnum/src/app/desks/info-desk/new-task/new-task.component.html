@@ -12,9 +12,7 @@
             </div>
 
             <div class="col-xm-12 col-sm-2 mt-1">
-                <button [disabled]="newTaskForm.invalid || newTaskForm.pending" class="btn btn-{{ desk.cor }} col-12" createTask>
-                    Criar a Task
-                </button>
+                <input [disabled]="newTaskForm.invalid || newTaskForm.pending" class="btn border-{{ desk.cor }} col-12" type="submit" value="Criar a Task" createTask>
             </div>
         </div>
     </form>

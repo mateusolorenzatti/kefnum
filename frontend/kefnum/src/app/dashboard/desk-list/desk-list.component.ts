@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Desk } from 'src/app/core/desk/desk';
 import { DeskService } from 'src/app/core/desk/desk.service';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'kef-desk-list',
@@ -11,18 +12,13 @@ export class DeskListComponent implements OnInit {
 
   desks: Desk[] = [];
 
-  constructor(public deskService: DeskService) { }
+  constructor(public deskService: DeskService, private router: Router) { }
 
   ngOnInit(): void {
     this.deskService.refreshData()
       .subscribe(
-        desks => {
-          this.desks = desks;
-          console.log(desks);
-        },
-        err => {
-          console.log(err);
-        });
+        desks => this.desks = desks,
+        err => this.router.navigate(['/requesterror']));
   }
 
   mouseEnterDesk(event){

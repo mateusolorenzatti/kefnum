@@ -51,18 +51,23 @@ export class UserService {
 
     public logout() {
         return this.http.post<any>(this.config.apiLogout(), {})
-            .subscribe(() => {
-                this.token.removeToken();
-
-                window.localStorage.removeItem('id');
-                window.localStorage.removeItem('username');
-                window.localStorage.removeItem('first_name');
-                window.localStorage.removeItem('last_name');
-                window.localStorage.removeItem('email');
-            });
+            .subscribe(
+                () => this.clearData(),
+                err => this.clearData()
+            );
     }
 
-    public newUser(newUser: User){
+    public clearData() {
+        this.token.removeToken();
+
+        window.localStorage.removeItem('id');
+        window.localStorage.removeItem('username');
+        window.localStorage.removeItem('first_name');
+        window.localStorage.removeItem('last_name');
+        window.localStorage.removeItem('email');
+    }
+
+    public newUser(newUser: User) {
         return this.http.post<User>(this.config.apiNewUser(), newUser);
     }
 }

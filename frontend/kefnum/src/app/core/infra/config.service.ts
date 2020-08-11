@@ -6,8 +6,12 @@ const api_routes = {
   logout: API_URL + "/auth/token/logout/",
   userinfo: API_URL + "/user/",
   newuser: API_URL + "/newuser/",
+  
   getDesks: API_URL + "/desks/",
   getDeskInfo: API_URL + "/deskinfo/",
+  updateDesk: API_URL + "/desks/modify/",
+  deleteDesk: API_URL + "/desks/modify/",
+
   getTasks: API_URL + "/tasks/",
   deleteTask: API_URL + "/tasks/modify/",
   updateTask: API_URL + "/tasks/modify/"
@@ -58,5 +62,13 @@ export class ConfigService {
 
   public apiUpdateTask(){
     return api_routes.updateTask;
+  }
+
+  public apiUpdateDesk(){
+    return api_routes.updateDesk;
+  }
+
+  public apiDeleteDesk(){
+    return api_routes.deleteDesk;
   }
 }

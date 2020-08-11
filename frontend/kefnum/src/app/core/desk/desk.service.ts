@@ -22,4 +22,12 @@ export class DeskService {
     public newDesk(newDesk: Desk){
         return this.http.post<Desk>(this.config.apiGetDesks(), newDesk);
     }
+
+    public updateDask(deskId: number, updatedDesk: Desk){
+        return this.http.patch<any>(this.config.apiUpdateDesk() + deskId, updatedDesk);
+    }
+
+    public deleteDesk(deskId: number){
+        return this.http.delete<any>(this.config.apiDeleteDesk() + deskId);
+    }
 }

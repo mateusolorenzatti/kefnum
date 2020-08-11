@@ -7,12 +7,14 @@ import { ShareModule } from '../shared/share.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoDeskComponent } from './info-desk/info-desk.component';
 import { NewTaskComponent } from './info-desk/new-task/new-task.component';
+import { DeskFormComponent } from './desk-form/desk-form.component';
 
 @NgModule({
   declarations: [
     NewDeskComponent,
     InfoDeskComponent,
     NewTaskComponent,
+    DeskFormComponent,
   ],
   exports : [
     NewDeskComponent,

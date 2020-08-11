@@ -3,6 +3,7 @@ import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
 import { Task } from 'src/app/core/task/task';
 import { TaskService } from 'src/app/core/task/task.service';
 import { Desk } from 'src/app/core/desk/desk';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'kef-dash-desk',
@@ -15,7 +16,7 @@ export class DashDeskComponent implements OnInit {
   tasks: Task[] = [];
   resolvidas: number;
 
-  constructor(public taskService: TaskService, private theme: ThemeManagerService) { }
+  constructor(public taskService: TaskService, private theme: ThemeManagerService, private router: Router) { }
 
   ngOnInit(): void {
     this.theme.applyTheme();
@@ -26,9 +27,7 @@ export class DashDeskComponent implements OnInit {
           this.tasks = tasks;
           this.resolvidas = tasks.filter((task) => !task.pendente).length;
         },
-        err => {
-          console.log(err);
-        }
+        err => this.router.navigate(['/requesterror'])
       )
   }
 

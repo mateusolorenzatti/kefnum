@@ -5,6 +5,7 @@ import { Desk } from 'src/app/core/desk/desk';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
 import { TaskService } from 'src/app/core/task/task.service';
 import { Task } from 'src/app/core/task/task';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'kef-new-task',
@@ -21,7 +22,8 @@ export class NewTaskComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private theme: ThemeManagerService,
-    private taskService: TaskService
+    private taskService: TaskService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -47,12 +49,8 @@ export class NewTaskComponent implements OnInit {
     task.ativa = true;
 
     this.taskService.newTask(task).subscribe(
-      () => {          
-        this.sucesso();
-      },
-      err => {
-        console.log(err);
-      }
+      () => this.sucesso(),
+      err => this.router.navigate(['/requesterror'])
     );
   }
 }

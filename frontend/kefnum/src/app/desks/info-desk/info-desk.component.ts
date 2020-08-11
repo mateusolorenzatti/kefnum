@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Desk } from 'src/app/core/desk/desk';
 import { DeskService } from 'src/app/core/desk/desk.service';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
@@ -22,6 +22,14 @@ export class InfoDeskComponent implements OnInit {
   resolvidas: number;
 
   modoAdicionar: boolean;
+  modoEditar: boolean = false;
+
+  deskAtualizada = () => {
+    this.modoEditar = false;
+
+    this.atualizarInfo();
+  }
+
   taskAdicionada = () => {
     this.modoAdicionar = false;
 
@@ -30,6 +38,7 @@ export class InfoDeskComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private deskService: DeskService,
     private taskService: TaskService,
     private userService: UserService,
@@ -52,9 +61,7 @@ export class InfoDeskComponent implements OnInit {
 
         setTimeout(() => { this.theme.applyTheme(); }, 10 );
       },
-      err => {
-        console.log(err);
-      });
+      err => this.router.navigate(['/requesterror']));;
   }
 
   novaTaskRow(){
@@ -63,12 +70,8 @@ export class InfoDeskComponent implements OnInit {
 
   deletarTask(taskId){
     this.taskService.deleteTask(taskId).subscribe(
-        () => {
-          this.atualizarInfo();
-        },
-        err => {
-          console.log(err);
-        }
+        () => this.atualizarInfo(),
+        err => this.router.navigate(['/requesterror'])
     );
   }
 
@@ -77,12 +80,21 @@ export class InfoDeskComponent implements OnInit {
     const task = { pendente: !condicao } as Task;
 
     this.taskService.updateTask(taskId, task).subscribe(
-      () => {
-        this.atualizarInfo();
-      },
-      err => {
-        console.log(err);
-      }
+      () => this.atualizarInfo(),
+      err => this.router.navigate(['/requesterror'])
+    );
+  }
+
+  toggleEditar(){
+    this.modoEditar = !this.modoEditar;
+
+    setTimeout(() => { this.theme.applyTheme(); }, 10 );
+  }
+
+  deletarDesk(){
+    this.deskService.deleteDesk(this.desk.id).subscribe(
+        () => this.router.navigate(['/dashboard']),
+        err => this.router.navigate(['/requesterror'])
     );
   }
 }

@@ -8,6 +8,8 @@ export class TitleComponent implements OnInit {
 
   @Input() title: string
 
+  @Input() sizing: string = 'col';
+
   constructor() { }
 
   ngOnInit(): void {

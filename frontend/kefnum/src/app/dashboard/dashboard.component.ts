@@ -26,7 +26,8 @@ export class DashboardComponent implements OnInit {
         this.user = data[0];
         this.userService.setUserLocal(this.user);
         this.mensagemPeriodoDoDia += ", " + this.user?.first_name
-      });
+      },
+      err => this.router.navigate(['/requesterror']));
   }
 
   private definirPeriodoDoDia(){
