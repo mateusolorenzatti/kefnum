@@ -5,11 +5,13 @@ import { ContainerComponent } from './components/container/container.component';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { TitleComponent } from './components/title/title.component';
+import { CenterCardComponent } from './components/center-card/center-card.component';
 
 @NgModule({
   declarations: [
     ContainerComponent,
-    TitleComponent
+    TitleComponent,
+    CenterCardComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +21,8 @@ import { TitleComponent } from './components/title/title.component';
   providers: [],
   exports: [
     ContainerComponent,
-    TitleComponent
+    TitleComponent,
+    CenterCardComponent
   ],
 })
 export class ShareModule { }

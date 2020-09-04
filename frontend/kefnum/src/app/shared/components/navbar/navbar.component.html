@@ -23,29 +23,34 @@
               [icon]="theme.isDarkMode() ? 'fa-toggle-on' : 'fa-toggle-off'" (onClick)="alterarTema()">
             </kef-dropdown-item>
 
+            
             <div #optionsIsLogged *ngIf="userService.isLogged(); else optionsNotLogged">
               <kef-dropdown-item [nomeItem]="'Nova Desk'"
-                [icon]="'fa-plus'" [routerLink]="['/newdesk']">
-              </kef-dropdown-item>
-              
-              <kef-dropdown-item [nomeItem]="'Sair'"
-                [icon]="'fa-sign-out'" (onClick)="logout()">
-              </kef-dropdown-item>
-
-            </div>
-
-            <ng-template #optionsNotLogged>
-              <kef-dropdown-item [nomeItem]="'Login'"
-                [icon]="'fa-sign-in'" [routerLink]="['/login']">
-              </kef-dropdown-item>
-              
-              <kef-dropdown-item [nomeItem]="'Registrar'"
-                [icon]="'fa-user-plus'" [routerLink]="['/newuser']">
-              </kef-dropdown-item>
-
-            </ng-template>
-          </div>
+              [icon]="'fa-plus'" [routerLink]="['/newdesk']">
+            </kef-dropdown-item>
+            
+            <kef-dropdown-item [nomeItem]="'Sair'"
+            [icon]="'fa-sign-out'" (onClick)="logout()">
+          </kef-dropdown-item>
+          
         </div>
+        
+        <ng-template #optionsNotLogged>
+          <kef-dropdown-item [nomeItem]="'Login'"
+          [icon]="'fa-sign-in'" [routerLink]="['/login']">
+        </kef-dropdown-item>
+        
+        <kef-dropdown-item [nomeItem]="'Registrar'"
+        [icon]="'fa-user-plus'" [routerLink]="['/newuser']">
+      </kef-dropdown-item>
+      
+      <kef-dropdown-item [nomeItem]="'Informações'"
+        [icon]="'fa-info'" [routerLink]="['/info']">
+      </kef-dropdown-item>
+   
+    </ng-template>
+  </div>
+</div>
 
       </div>
     </div>

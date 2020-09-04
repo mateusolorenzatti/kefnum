@@ -11,10 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { DesksModule } from './desks/desks.module';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

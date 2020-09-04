@@ -10,11 +10,16 @@ import { LoginRequiredGuard } from './core/auth/loginrequired.guard';
 import { NewDeskComponent } from './desks/new-desk/new-desk.component';
 import { InfoDeskComponent } from './desks/info-desk/info-desk.component';
 import { RequestErrorComponent } from './errors/request-error/request-error.component';
+import { InfoComponent } from './info/info.component';
 
 const routes: Routes = [
   { 
     path: '', 
     component: HomeComponent,
+  },
+  { 
+    path: 'info', 
+    component: InfoComponent,
   },
   { 
     path: 'dashboard', 
