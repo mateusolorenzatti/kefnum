@@ -22,11 +22,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import TemplateView
 
 from rest_framework.authtoken import views
 
 urlpatterns = [
-    path('', include('kefnum.urls'), name='kefnum'),
+    path('', TemplateView.as_view(template_name="ang.html"), name='home'),
+    path('staff/', include('kefnum.urls'), name='kefnum'),
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls.authtoken')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
