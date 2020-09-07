@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <button [disabled]="(modoEdicao) ? true : newDeskForm?.invalid || newDeskForm?.pending" class="btn btn-{{ (modoEdicao) ? 'light' : 'kefnum' }} float-right mt-3" submit>
+    <button [disabled]="(modoEdicao) ? false : newDeskForm?.invalid || newDeskForm?.pending" class="btn btn-{{ (modoEdicao) ? 'light' : 'kefnum' }} float-right mt-3" submit>
         {{ !modoEdicao ? 'Criar a Desk' : 'Salvar' }} 
     </button>
 

@@ -6,6 +6,7 @@ import { UserService } from 'src/app/core/user/user.service';
 import { DeskService } from 'src/app/core/desk/desk.service';
 import { Router } from '@angular/router';
 import { Desk } from 'src/app/core/desk/desk';
+import { AlertService } from 'src/app/shared/components/alert/alert.service';
 
 @Component({
   selector: 'kef-desk-form',
@@ -27,7 +28,8 @@ export class DeskFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private deskService: DeskService,
-    private router: Router) { }
+    private router: Router,
+    private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.cores = [
@@ -69,7 +71,10 @@ export class DeskFormComponent implements OnInit {
 
     this.deskService.newDesk(desk)
       .subscribe(
-        () => this.router.navigate(['/dashboard']),
+        () => {
+          this.router.navigate(['/dashboard']);
+          this.alertService.success('Desk adicionada com Sucesso!', true);
+        },
         err => this.router.navigate(['/requesterror']));
   }
 

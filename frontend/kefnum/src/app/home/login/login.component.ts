@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ThemeManagerService } from 'src/app/core/theme/theme-manager.service';
+import { AlertService } from 'src/app/shared/components/alert/alert.service';
 
 @Component({
   selector: 'kef-login',
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(private theme: ThemeManagerService,
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private alertService: AlertService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
           console.log(err);
           this.loginForm.reset();
 
-          alert('Usuário ou senha inválidos!');
+          this.alertService.danger('Usuário ou senha inválidos!', true);
         }
       );
   }

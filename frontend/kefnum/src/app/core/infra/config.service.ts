@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
-const API_URL = 'http://localhost:8003';
+const API_URL = environment.API_URL;
 const api_routes = {
   login: API_URL + "/auth/token/login/",
   logout: API_URL + "/auth/token/logout/",

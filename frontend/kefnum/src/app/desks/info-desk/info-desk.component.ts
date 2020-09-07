@@ -7,6 +7,7 @@ import { UserService } from 'src/app/core/user/user.service';
 import { User } from 'src/app/core/user/user';
 import { TaskService } from 'src/app/core/task/task.service';
 import { Task } from 'src/app/core/task/task';
+import { AlertService } from 'src/app/shared/components/alert/alert.service';
 
 @Component({
   selector: 'kef-info-desk',
@@ -42,6 +43,7 @@ export class InfoDeskComponent implements OnInit {
     private deskService: DeskService,
     private taskService: TaskService,
     private userService: UserService,
+    private alertService: AlertService,
     private theme: ThemeManagerService
     ) { }
 
@@ -93,8 +95,14 @@ export class InfoDeskComponent implements OnInit {
 
   deletarDesk(){
     this.deskService.deleteDesk(this.desk.id).subscribe(
-        () => this.router.navigate(['/dashboard']),
-        err => this.router.navigate(['/requesterror'])
+        () => { 
+          this.router.navigate(['/dashboard']); 
+          this.alertService.success('Desk removida com Sucesso!', true);
+        },
+        err => {
+          this.router.navigate(['/dashboard']);
+          this.alertService.danger('Erro ao remover Desk', true);
+        }
     );
   }
 }

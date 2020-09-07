@@ -12,6 +12,7 @@ import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { DesksModule } from './desks/desks.module';
 import { InfoComponent } from './info/info.component';
+import { AlertModule } from './shared/components/alert/alert.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { InfoComponent } from './info/info.component';
     NavbarModule,
     CoreModule,
     HttpClientModule,
+    AlertModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
