@@ -1,0 +1,21 @@
+
+.bg-primaria{
+    background-color: #a64d79ff;
+}
+
+.bg-secundaria{
+    background-color: #4c1130ff;
+}
+
+.bg-body{
+    background-color: #3d1d2eff;
+}
+
+.bg-leve{
+    background-color: #d5a6bdff;
+}
+
+.linha_nav{
+    margin-top: 0px;
+    border: 2px solid #a64d79ff;
+  }
