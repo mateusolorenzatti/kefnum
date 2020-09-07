@@ -5,17 +5,17 @@ const API_URL = environment.API_URL;
 const api_routes = {
   login: API_URL + "/auth/token/login/",
   logout: API_URL + "/auth/token/logout/",
-  userinfo: API_URL + "/user/",
-  newuser: API_URL + "/newuser/",
+  userinfo: API_URL + "/staff/user/",
+  newuser: API_URL + "/staff/newuser/",
   
-  getDesks: API_URL + "/desks/",
-  getDeskInfo: API_URL + "/deskinfo/",
-  updateDesk: API_URL + "/desks/modify/",
-  deleteDesk: API_URL + "/desks/modify/",
+  getDesks: API_URL + "/staff/desks/",
+  getDeskInfo: API_URL + "/staff/deskinfo/",
+  updateDesk: API_URL + "/staff/desks/modify/",
+  deleteDesk: API_URL + "/staff/desks/modify/",
 
-  getTasks: API_URL + "/tasks/",
-  deleteTask: API_URL + "/tasks/modify/",
-  updateTask: API_URL + "/tasks/modify/"
+  getTasks: API_URL + "/staff/tasks/",
+  deleteTask: API_URL + "/staff/tasks/modify/",
+  updateTask: API_URL + "/staff/tasks/modify/"
 }
 
 @Injectable({
